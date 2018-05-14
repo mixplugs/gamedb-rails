@@ -5,13 +5,14 @@ class CreateFoods < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    
+
     ActiveRecord::Base.connection.execute(<<~SQL
       alter table foods 
       add constraint fk_foods_items
       foreign key (id) 
       REFERENCES items (id);
-    SQL)
+    SQL
+    )
 
   end
 end

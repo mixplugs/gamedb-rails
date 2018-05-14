@@ -13,7 +13,8 @@ class CreateMonsters < ActiveRecord::Migration[5.2]
       add constraint fk_monsters_creatures
       foreign key (id) 
       REFERENCES creatures (id);
-    SQL)
+    SQL
+    )
 
   end
 end
