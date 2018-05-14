@@ -1,24 +1,10 @@
-# README
+# Gamedb-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my database course's assignment.
 
-Things you may want to cover:
+### Environment
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ubuntu 16.04.4 x64
+Ruby 2.4.1
+Ruby on Rails 5.2.0
+Postgresql 9.5
