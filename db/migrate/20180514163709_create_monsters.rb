@@ -7,5 +7,13 @@ class CreateMonsters < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    
+    ActiveRecord::Base.connection.execute(<<~SQL
+      alter table monsters 
+      add constraint fk_monsters_creatures
+      foreign key (id) 
+      REFERENCES creatures (id);
+    SQL)
+
   end
 end
