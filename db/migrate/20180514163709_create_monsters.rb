@@ -1,20 +1,19 @@
 class CreateMonsters < ActiveRecord::Migration[5.2]
   def change
     create_table :monsters do |t|
-      t.integer :health
-      t.integer :level
-      t.integer :attack
+      t.integer     :health,    null: false
+      t.integer     :level,     null: false
+      t.integer     :attack,    null: false
 
       t.timestamps
     end
 
-    ActiveRecord::Base.connection.execute(<<~SQL
-      alter table monsters 
-      add constraint fk_monsters_creatures
-      foreign key (id) 
+    execute <<~SQL
+      ALTER TABLE monsters 
+      ADD CONSTRAINT fk_monsters_creatures
+      FOREIGN KEY (id) 
       REFERENCES creatures (id);
     SQL
-    )
 
   end
 end
