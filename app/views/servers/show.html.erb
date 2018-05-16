@@ -12,8 +12,66 @@
 </head>
 <body>
 
-<h1>Server id:</h1>
-<%= @server.id %>
+<div class="container">
+	<div class="row clearfix">
+    <div class="col-md-12 column">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Library</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+      </nav>
+      
+      <div class="page-header">
+        <h1>
+          Player List <small>Server id:<%= @server.id %></small>
+        </h1>
+      </div>
+      
+			<div class="row clearfix">
+        <div class="col-md-12 column">
+          
+          <% @server.players.each do |player| %>
+            <div class="card" style="max-width:760px;">
+            <div class="card-body">
+              
+              <h3 class="card-title"><%= player.name %></h3>
+
+              <div class="container">
+                <div class="row">
+
+                  <div class="col-sm">
+                      
+                  </div>
+
+                  <div class="col-sm">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <%= link_to 'Show', player_path(player), class: 'btn btn-primary btn-lg' -%>
+                      <button type="button" class="btn btn-secondary">Left</button>
+                      <button type="button" class="btn btn-secondary">Middle</button>
+                      <button type="button" class="btn btn-secondary">Right</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+    
+            </div>
+          </div>
+
+          <% end %>
+
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+#<h1>Server id:</h1>
+#<%= @server.id %>
 
 <h2>Player List</h2>
 <div class="list-group">
@@ -26,3 +84,4 @@
 
 </body>
 </html>
+
