@@ -1,7 +1,26 @@
 class ServersController < ApplicationController
+
+  def index
+    @servers = Server.all
+  end
+
+  def show
+    @server = Server.find(params[:id])
+  end
+
   def new
   end
+
   def create
-	render plain: params[:server].inspect
+	@server = Server.new()
+ 
+    @server.save
+    redirect_to @server
   end
+
+  private
+    def server_params
+	  params.require(:server).permit(:running)
+	end
+
 end

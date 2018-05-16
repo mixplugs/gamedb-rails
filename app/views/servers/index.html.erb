@@ -11,20 +11,31 @@
   <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 </head>
 <body>
-​
+
+?<h1>Server id:</h1>
+<%= @server.id %>
+
+<h2>Server List</h2>
 <div class="list-group">
 
-  <div class="checkbox">
-    <label>
-    <input type="checkbox">Running
-    </label>
-  </div>
-
-  <%= f.check_box :running %>
-
-  <button type="button" class="btn btn-primary"><%= f.submit %></button>
+  <% @servers.each do |server| %>
+	<div class="card">
+	  <div class="card-body">
+	    Server id:
+		<h5 class="card-title"><%= server.id %></h5>
+		<div class="btn-group">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
 </div>
-​
+?
 </body>
 </html>

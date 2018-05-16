@@ -11,20 +11,18 @@
   <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 </head>
 <body>
-​
+
+?<h1>Server id:</h1>
+<%= @server.id %>
+
+<h2>Player List</h2>
 <div class="list-group">
 
-  <div class="checkbox">
-    <label>
-    <input type="checkbox">Running
-    </label>
-  </div>
-
-  <%= f.check_box :running %>
-
-  <button type="button" class="btn btn-primary"><%= f.submit %></button>
+  <% @server.players.each do |player| %>
+	<%= comment.id %>
+  <% end %>
 
 </div>
-​
+?
 </body>
 </html>
