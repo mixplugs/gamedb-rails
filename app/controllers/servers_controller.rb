@@ -18,6 +18,13 @@ class ServersController < ApplicationController
     redirect_to @server
   end
 
+  def destroy
+    @server = Server.find(params[:id])
+    @server.destroy
+ 
+    redirect_to servers_path
+  end
+
   private
     def server_params
 	  params.require(:server).permit(:running)
