@@ -12,13 +12,16 @@
 </head>
 <body>
 
-<%= form_for :server, url: servers_path do |f| %>
+<div class="mx-auto" style="margin-top: 220;">
+<div class="container">
 
-  <%= f.check_box :running %>
-
-  <button type="button" class="btn btn-primary"><%= f.submit %></button>
-
-<% end %>
+  <%= form_for :server, url: servers_path do |f| %>
+    <%= f.check_box :running, class: "form-check-input" %>
+    <div><%= f.submit, class: "btn btn-primary" %></div>
+  <% end %>
+  
+</div>
+</div>
 
 </body>
 </html>

@@ -12,41 +12,68 @@
 </head>
 <body>
 
+<div class="mx-auto" style="margin-top: 220;">
 <div class="container">
 
-  <h2>The Server List</h2>
+	<h1>The Server List</h1>
   <div class="list-group">
 
-	<% @servers.each do |server| %>
-	  <div class="card" style="max-width:760px;">
-		<div class="card-body">
+		<% @servers.each do |server| %>
+			<div class="card" style="max-width:760px;">
+				<div class="card-body">
 
-		  <div class="container">
-			<div class="row">
-			  <div class="col-sm">
-				Server id:
-		        <h5 class="card-title"><%= server.id %></h5>
-			  </div>
-			  <div class="col-sm">
-				<button type="button" class="btn btn-primary btn-lg">
-				  Show
-				  <%= link_to 'Show', server_path(server) %>
-				</button>
-			  </div>
-			  <div class="col-sm">
-				<button type="button" class="btn btn-danger btn-lg">
-				  Delete
-				</button>
-			  </div>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm">
+							Server id:
+									<h5 class="card-title"><%= server.id %></h5>
+							</div>
+							<div class="col-sm">
+								<button type="button" class="btn btn-primary btn-lg">
+									<%= link_to 'Show', server_path(server) :class => "btn" %>
+								</button>
+								</div>
+								<div class="col-sm">
+
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+									Delete
+								</button>
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmation" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLongTitle">Delete server</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												You will delete this server. Are you sure?
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+												<button type="button" class="btn btn-danger">
+													<%= link_to 'Destroy', server_path(server) :class => "btn" %>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
-		  </div>
+		<% end %>
 
-		</div>
-	  </div>
-	<% end %>
-
+	</div>
 </div>
 </div>
-?
+
+
 </body>
 </html>
