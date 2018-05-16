@@ -18,68 +18,112 @@
 
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Library</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data</li>
+          <li class="breadcrumb-item"><a href="#">Server List</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Player List</li>
         </ol>
       </nav>
       
-      <div class="page-header">
-        <h1>
-          Player List <small>Server id:<%= @server.id %></small>
-        </h1>
+      <div class="row">
+
+        <div class="col">
+          <div class="page-header">
+            <h1>
+              Player List
+            </h1>
+            <h3>
+              Server id:<%= @server.id %>
+            </h3>
+          </div>
+        </div>
+
+        <div class="col">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPlayer">New player</button>
+
+          <div class="modal fade" id="newPlayer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+
+                <%= form_for([@server, @server.players.build]) do |f| %>
+
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="newPlayerLabel">New player</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+
+                    <%= f.label :name, class: "col-form-label" %><br>
+                    <%= f.text_field :name, class: "form-control" %>
+
+                    <%= f.label :career, class: "col-form-label" %><br>
+                    <%= f.text_field :career, class: "form-control" %>
+
+                    <%= f.label :level, class: "col-form-label" %><br>
+                    <%= f.text_field :level, class: "form-control" %>
+
+                    <%= f.label :health, class: "col-form-label" %><br>
+                    <%= f.text_field :health, class: "form-control" %>
+
+                  </div>
+                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    # <button type="button" class="btn btn-primary">Create player</button>
+                    <%= f.submit "Create player", class: 'btn btn-primary' -%>
+                  </div>
+
+                <% end %>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
+
       
-			<div class="row clearfix">
+        
+      <div class="row clearfix">
         <div class="col-md-12 column">
           
           <% @server.players.each do |player| %>
             <div class="card" style="max-width:760px;">
-            <div class="card-body">
-              
-              <h3 class="card-title"><%= player.name %></h3>
+              <div class="card-body">
+                
+                <h3 class="card-title"><%= player.name %></h3>
 
-              <div class="container">
-                <div class="row">
+                <div class="container">
+                  <div class="row">
 
-                  <div class="col-sm">
-                      
-                  </div>
-
-                  <div class="col-sm">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                      <%= link_to 'Show', player_path(player), class: 'btn btn-primary btn-lg' -%>
-                      <button type="button" class="btn btn-secondary">Left</button>
-                      <button type="button" class="btn btn-secondary">Middle</button>
-                      <button type="button" class="btn btn-secondary">Right</button>
+                    <div class="col-sm">
+                        
                     </div>
-                  </div>
 
+                    <div class="col-sm">
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= link_to 'Show', player_path(player), class: 'btn btn-primary btn-lg' -%>
+                        <button type="button" class="btn btn-secondary">Left</button>
+                        <button type="button" class="btn btn-secondary">Middle</button>
+                        <button type="button" class="btn btn-secondary">Right</button>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
+      
               </div>
-    
             </div>
-          </div>
 
           <% end %>
 
-					
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-#<h1>Server id:</h1>
-#<%= @server.id %>
-
-<h2>Player List</h2>
-<div class="list-group">
-
-  <% @server.players.each do |player| %>
-	  <%= comment.id %>
-  <% end %>
-
+            
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
