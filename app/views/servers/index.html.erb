@@ -29,11 +29,9 @@
 									<h5 class="card-title"><%= server.id %></h5>
 							</div>
 							<div class="col-sm">
-								<button type="button" class="btn btn-primary btn-lg">
-									<%= link_to 'Show', server_path(server), class: 'btn btn-primary btn-lg' -%>
-								</button>
-								</div>
-								<div class="col-sm">
+								<%= link_to 'Show', server_path(server), class: 'btn btn-primary btn-lg' -%>
+							</div>
+							<div class="col-sm">
 
 								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
 									Delete
@@ -54,9 +52,7 @@
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-												<button type="button" class="btn btn-danger">
-													<%= link_to 'Destroy', server_path(server), class: 'btn' -%>
-												</button>
+												<%= link_to 'Destroy', server_path(server), class: 'btn btn-danger' -%>
 											</div>
 										</div>
 									</div>

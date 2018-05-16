@@ -16,8 +16,8 @@
 <div class="container">
 
   <%= form_for :server, url: servers_path do |f| %>
-    <div><%= f.check_box :running, class: 'form-check-input' %></div>
-    <div><%= f.submit, class: 'btn btn-primary' %></div>
+    <%= f.check_box :running, class: 'form-check-input' -%>
+    <%= f.submit, class: 'btn btn-primary' -%>
   <% end %>
 
 </div>
