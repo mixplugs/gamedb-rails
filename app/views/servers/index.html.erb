@@ -12,26 +12,40 @@
 </head>
 <body>
 
-<h2>Server List</h2>
-<div class="list-group">
+<div class="container">
 
-  <% @servers.each do |server| %>
-	<div class="card">
-	  <div class="card-body">
-	    Server id:
-		<h5 class="card-title"><%= server.id %></h5>
-		<div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <h2>The Server List</h2>
+  <div class="list-group">
 
+	<% @servers.each do |server| %>
+	  <div class="card" style="max-width:760px;">
+		<div class="card-body">
+
+		  <div class="container">
+			<div class="row">
+			  <div class="col-sm">
+				Server id:
+		        <h5 class="card-title"><%= server.id %></h5>
+			  </div>
+			  <div class="col-sm">
+				<button type="button" class="btn btn-primary btn-lg">
+				  Show
+				  <%= link_to 'Show', server_path(server) %>
+				</button>
+			  </div>
+			  <div class="col-sm">
+				<button type="button" class="btn btn-danger btn-lg">
+				  Delete
+				</button>
+			  </div>
+			</div>
+		  </div>
+
+		</div>
+	  </div>
+	<% end %>
+
+</div>
 </div>
 ?
 </body>
