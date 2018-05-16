@@ -11,20 +11,14 @@
   <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 </head>
 <body>
-​
-<div class="list-group">
 
-  <div class="checkbox">
-    <label>
-    <input type="checkbox">Running
-    </label>
-  </div>
+<%= form_for :article do |f| %>
 
   <%= f.check_box :running %>
 
   <button type="button" class="btn btn-primary"><%= f.submit %></button>
 
-</div>
-​
+<% end %>
+
 </body>
 </html>
