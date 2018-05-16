@@ -12,7 +12,7 @@ class ServersController < ApplicationController
   end
 
   def create
-	@server = Server.new()
+	@server = Server.new(server_params)
  
     @server.save
     redirect_to @server
