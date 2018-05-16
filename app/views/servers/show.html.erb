@@ -104,10 +104,9 @@
 
                     <div class="col-sm">
                       <div class="btn-group" role="group" aria-label="Basic example">
-                        <%= link_to 'Show', [@server, player], class: 'btn btn-primary btn-lg' -%>
-                        <button type="button" class="btn btn-secondary">Left</button>
-                        <button type="button" class="btn btn-secondary">Middle</button>
-                        <button type="button" class="btn btn-secondary">Right</button>
+                        <%= link_to 'Show', [@server, player], class: 'btn btn-primary' -%>
+                        <%= link_to 'Edit', [@server, player], class: 'btn btn-primary' -%>
+                        <%= link_to 'Delete', [@server, player], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' -%></td>
                       </div>
                     </div>
 

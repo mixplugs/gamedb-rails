@@ -28,17 +28,23 @@
 							Server id:
 									<h5 class="card-title"><%= server.id %></h5>
 							</div>
+
 							<div class="col-sm">
-								<%= link_to 'Show', server_path(server), class: 'btn btn-primary btn-lg' -%>
+								<div class="btn-group" role="group" aria-label="Basic example">
+									<%= link_to 'Show', server_path(server), class: 'btn btn-primary' -%>
+									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+								</div>
+							</div>
+
+							<div class="col-sm">
+								<%= link_to 'Show', server_path(server), class: 'btn btn-primary' -%>
 							</div>
 							<div class="col-sm">
 
-								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-									Delete
-								</button>
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
 								
 								<!-- Modal -->
-								<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmation" aria-hidden="true">
+								<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmation" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -52,7 +58,7 @@
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-												<%= link_to 'Destroy', server_path(server), class: 'btn btn-danger' -%>
+												<%= link_to 'Delete', server_path(server), method: :delete, class: 'btn btn-danger' -%>
 											</div>
 										</div>
 									</div>
